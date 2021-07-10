@@ -5,6 +5,7 @@ import ParticlesBg from 'particles-bg';
 import './landingpage.css';
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
+import Footer from './Footer';
 
 
 
@@ -41,16 +42,9 @@ class Landingpage extends Component {
           
             </div>
             </div>
-
-           <div className="container4">
-             this is features section.
-           </div>
-
-           <div className="container5">
-             this is footer section.
-           </div>
-            
-        </div>
+            <Footer />
+          </div>
+         
       );
     };
     
