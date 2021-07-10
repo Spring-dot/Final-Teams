@@ -1,0 +1,10 @@
+{
+  "name": "video-aio-bot",
+  "description": "All in one bot for video",
+  "repository": "https://github.com/Rocky2242/video-meeting-working",
+  "keywords": ["node", "express", "bot", "video", "automation"],
+  "builpacks": [
+    { "url": "heroku/nodejs" },
+    { "url": "https://github.com/jontewks/puppeteer-heroku-buildpack.git" }
+  ]
+}

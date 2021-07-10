@@ -1,0 +1,22 @@
+.nav-l{
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: large;
+}
+
+.container1{
+  height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    font-display: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-c{
+  font-display: white;
+  font-size: 50px;
+  font-family: sans-serif;
+
+}
