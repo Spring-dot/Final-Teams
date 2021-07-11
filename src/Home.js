@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
 import { Input, Button, IconButton } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import "./Home.css";
 import Navbar from './navbar';
-import Footer from './Footer';
 
 
 class Home extends Component {
+	
   	constructor (props) {
 		super(props)
 		this.state = {
 			url: ''
 		}
 	}
+    
 
 	handleChange = (e) => this.setState({ url: e.target.value })
 
@@ -26,11 +26,13 @@ class Home extends Component {
 			window.location.href = `/${url}`
 		}
 	}
-
+   
 	render() {
+		
 		return (
 			<div>
 			 <Navbar />
+
 			 <div className="container2">
 				<div style={{fontSize: "14px", background: "white", width: "10%", textAlign: "center", margin: "auto", marginBottom: "10px"}}>
 					Source code: 
@@ -40,7 +42,7 @@ class Home extends Component {
 				</div>
 				
 				<div>
-					<h1 style={{ fontSize: "45px" }}>Microsoft Teams</h1>
+					<h1 style={{ fontSize: "45px" }}>Teams Meeting</h1>
 					<p style={{ fontWeight: "200" }}>Video conference website that lets you stay in touch with all your friends.</p>
 				</div>
 
@@ -51,10 +53,9 @@ class Home extends Component {
 					<p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px" }}>Start or join a meeting</p>
 					<Input placeholder="URL" onChange={e => this.handleChange(e)} />
 					<Button variant="contained" color="primary" onClick={this.join} style={{ margin: "20px" }}>Join Meeting</Button>
-					<Button variant="contained" color="primary" onClick={this.join} style={{ margin: "20px" }}>Join Chat Room</Button>
 				</div>
 			 </div>
-			 <Footer />
+			 
 			</div>
 		)
 	}

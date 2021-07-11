@@ -22,6 +22,7 @@
     "react-awesome-button": "^6.5.1",
     "react-bootstrap": "^1.0.0",
     "react-css-grid": "^2.0.0-0",
+    "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "^16.13.1",
     "react-flexbox-grid": "^2.1.2",
     "react-grid-layout": "^0.18.3",

@@ -15,12 +15,14 @@ import ChatIcon from '@material-ui/icons/Chat'
 import { message } from 'antd'
 import 'antd/dist/antd.css'
 
+import Navigation from './navbar';
+
 import { Row } from 'reactstrap'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "./Video.css"
 
-const server_url = process.env.NODE_ENV === 'production' ? 'https://video.sebastienbiollo.com' : "http://localhost:4001"
+const server_url = process.env.NODE_ENV === 'production' ? 'https://teamsmeeting.herokuapp.com/' : "http://localhost:4001"
 
 var connections = {}
 const peerConnectionConfig = {
@@ -329,7 +331,7 @@ class Video extends Component {
 						}
 					}
 
-					// Add the local video stream
+					// To add the local video stream
 					if (window.localStream !== undefined && window.localStream !== null) {
 						connections[socketListId].addStream(window.localStream)
 					} else {
@@ -455,21 +457,23 @@ class Video extends Component {
 			<div>
 				{this.state.askForUsername === true ?
 					<div>
-						<div style={{background: "white", width: "30%", height: "auto", padding: "20px", minWidth: "400px",
+						<Navigation />
+						<div style={{background: "white", width: "30%", height: "25%", padding: "30px", minWidth: "400px",
 								textAlign: "center", margin: "auto", marginTop: "50px", justifyContent: "center"}}>
 							<p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px" }}>Set your username</p>
 							<Input placeholder="Username" value={this.state.username} onChange={e => this.handleUsername(e)} />
 							<Button variant="contained" color="primary" onClick={this.connect} style={{ margin: "20px" }}>Connect</Button>
 						</div>
 
+					
 						<div style={{ justifyContent: "center", textAlign: "center", paddingTop: "40px" }}>
 							<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
-								transform: "rotateY(180deg)",borderStyle: "solid",
-								borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
+								borderStyle: "solid",borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
 						</div>
 					</div>
 					:
 					<div>
+						
 						<div className="btn-down" style={{ backgroundColor: "whitesmoke", color: "whitesmoke", textAlign: "center" }}>
 							<IconButton style={{ color: "#424242" }} onClick={this.handleVideo}>
 								{(this.state.video === true) ? <VideocamIcon /> : <VideocamOffIcon />}
@@ -521,10 +525,11 @@ class Video extends Component {
 								}} onClick={this.copyUrl}>Copy invite link</Button>
 							</div>
 
+							
 							<Row id="main" className="flex-container" style={{ margin: 0, padding: 0 }}>
 								<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
 									borderStyle: "solid",borderColor: "#bdbdbd",margin: "10px",objectFit: "fill",
-									transform: "rotateY(180deg)",width: "100%",height: "100%"}}></video>
+									width: "100%",height: "100%"}}></video>
 							</Row>
 						</div>
 					</div>

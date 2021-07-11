@@ -5,7 +5,6 @@ import ParticlesBg from 'particles-bg';
 import './landingpage.css';
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
-import Footer from './Footer';
 
 
 
@@ -31,8 +30,16 @@ class Landingpage extends Component {
             <div className="card-c">
              <p class="text-light">
                 BUILD. CONNECT. COLLABORATE.
-               <p>
-                this is new paragraph
+               <p class="text-light" className="para-e">
+                A Simple Video Calling website to 
+                <br />
+                connect your friends and family.
+                <br />
+                You can simply invite them using
+                <br />
+                 invite link and enjoy video calling.
+                <br />
+
                 <br />
                 <Link to="/home">
                 <Button variant="contained" align="right">Get Started</Button>
@@ -42,7 +49,7 @@ class Landingpage extends Component {
           
             </div>
             </div>
-            <Footer />
+            
           </div>
          
       );
