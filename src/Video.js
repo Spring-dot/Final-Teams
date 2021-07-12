@@ -167,12 +167,32 @@ class Video extends Component {
 	getDislayMedia = () => {
 		if (this.state.screen) {
 			if (navigator.mediaDevices.getDisplayMedia) {
-				navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
-					.then(this.getDislayMediaSuccess)
-					.then((stream) => {})
-					.catch((e) => console.log(e))
+				// navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+				// 	.then(this.getDislayMediaSuccess)
+				// 	.then((stream) => {})
+				// 	.catch((e) => console.log(e))
+				navigator.mediaDevices
+			    .getDisplayMedia({ video: true, audio: true })
+			    .then(this.getDislayMediaSuccess)
+			    .then((stream) => {})
+			    .catch((e) => console.log(e));
 			}
-		}
+		   }
+		   else{
+			try {
+			  let tracks = this.localVideoref.current.srcObject.getTracks();
+			  tracks.forEach((track) => track.stop());
+			} catch (e) {
+			  console.log(e);
+			}
+
+			let blackSilence = (...args) =>
+			  new MediaStream([this.black(...args), this.silence()]);
+			  window.localStream = blackSilence();
+			  this.localVideoref.current.srcObject = window.localStream;
+			  this.getUserMedia();
+			}
+			
 	}
 
 	getDislayMediaSuccess = (stream) => {
@@ -470,6 +490,11 @@ class Video extends Component {
 							<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
 								borderStyle: "solid",borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
 						</div>
+						{/* <div style={{ justifyContent: "center", textAlign: "center", paddingTop: "40px" }}>
+							<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
+								transform: "rotateY(180deg)",borderStyle: "solid",
+								borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
+						</div> */}
 					</div>
 					:
 					<div>
@@ -531,6 +556,11 @@ class Video extends Component {
 									borderStyle: "solid",borderColor: "#bdbdbd",margin: "10px",objectFit: "fill",
 									width: "100%",height: "100%"}}></video>
 							</Row>
+							{/* <Row id="main" className="flex-container" style={{ margin: 0, padding: 0 }}>
+								<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
+									borderStyle: "solid",borderColor: "#bdbdbd",margin: "10px",objectFit: "fill",
+									transform: "rotateY(180deg)",width: "100%",height: "100%"}}></video>
+							</Row> */}
 						</div>
 					</div>
 				}
