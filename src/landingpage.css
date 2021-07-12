@@ -27,7 +27,7 @@ html, body {
 
 }
 .para-e{
-  font-family: cursive;
+  font-family: 'Roboto Mono', monospace;
   font-size: 28px;
   justify-content: center;
   align-items: center;
